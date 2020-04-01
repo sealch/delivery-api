@@ -1,8 +1,6 @@
 const Sequelize = require('sequelize');
 const { sequelize } = require('../database/db');
 
-const Order = require('./orders');
-
 const Menu = sequelize.define('menus', {
     id: {
         type: Sequelize.INTEGER,
@@ -17,8 +15,5 @@ const Menu = sequelize.define('menus', {
 }, {
     timestamps: false
 });
-
-Menu.hasMany(Order, { foreinkey: 'menu_id', sourceKey: 'id' });
-Order.belongsTo(Menu, { foreinkey: 'menu_id', targetId: 'id' });
 
 module.exports = Menu;

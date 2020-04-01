@@ -33,14 +33,14 @@ const Order = sequelize.define('orders', {
     timestamps: false
 });
 
-Order.hasOne(Restaurant, { foreinkey: 'id', sourceKey: 'restaurant_id' });
-Order.hasOne(Courier, { foreinkey: 'id', sourceKey: 'courier_id' });
-Order.hasOne(Client, { foreinkey: 'id', sourceKey: 'client_id' });
-Order.hasOne(Menu, { foreinkey: 'id', sourceKey: 'menu_id' });
+Order.hasOne(Restaurant, { foreignKey: 'id', sourceKey: 'restaurant_id' });
+Order.hasOne(Courier, { foreignKey: 'id', sourceKey: 'courier_id' });
+Order.hasOne(Client, { foreignKey: 'id', sourceKey: 'client_id' });
+Order.hasOne(Menu, { foreignKey: 'id', sourceKey: 'menu_id' });
 
-Order.belongsToMany(Restaurant, { foreinkey: 'id', targetId: 'restaurant_id' });
-Order.belongsToMany(Client, { foreinkey: 'id', targetId: 'client_id' });
-Order.belongsTo(Courier, { foreinkey: 'id', targetId: 'courier_id' });
-Order.belongsToMany(Menu, { foreinkey: 'id', targetId: 'menu_id' });
+Order.belongsTo(Restaurant, { foreignKey: 'id', targetId: 'restaurant_id' });
+Order.belongsTo(Courier, { foreignKey: 'id', targetId: 'courier_id' });
+Order.belongsTo(Client, { foreignKey: 'id', targetId: 'client_id' });
+Order.belongsTo(Menu, { foreignKey: 'id', targetId: 'menu_id' });
 
 module.exports = Order;

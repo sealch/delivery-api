@@ -1,8 +1,6 @@
 const Sequelize = require('sequelize');
 const { sequelize } = require('../database/db');
 
-const Order = require('./orders');
-
 const Client = sequelize.define('clients', {
     id: {
         type: Sequelize.INTEGER,
@@ -17,8 +15,5 @@ const Client = sequelize.define('clients', {
 }, {
     timestamps: false
 });
-
-Client.hasOne(Order, { foreinkey: 'client_id', sourceKey: 'id' });
-Order.belongsTo(Client, { foreinkey: 'cliend_id', targetId: 'id' });
 
 module.exports = Client;
