@@ -8,8 +8,8 @@ export async function getRestaurants(req, res) {
         res.json({
             data: restaurants
         });
-    } catch (error) {
-        console.log(error);
+    } catch (e) {
+        console.log(e);
         res.send('Something went wrong');
     }
 }
@@ -29,8 +29,8 @@ export async function createRestaurant(req, res) {
                 data: newRestaurant
             })
         }
-    } catch (error) {
-        console.log(error);
+    } catch (e) {
+        console.log(e);
         res.status(500).json({
             message: 'Something went wrong'
         })
@@ -46,8 +46,8 @@ export async function getOneRestaurant(req, res) {
             }
         });
         res.json(restaurant);
-    } catch (error) {
-        console.log(error);
+    } catch (e) {
+        console.log(e);
     }
 }
 
@@ -69,6 +69,7 @@ export async function updateRestaurant(req, res) {
             data: restaurant
         })
     } catch (e) {
+        console.log(e);
         res.json({
             message: 'Something went wrong'
         })
@@ -87,7 +88,8 @@ export async function deleteRestaurant(req, res) {
             message: 'Restaurant deleted',
             count: deleteRowsCount
         })
-    } catch (error) {
+    } catch (e) {
+        console.log(e);
         res.json({
             message: 'Something went wrong'
         });
