@@ -13,11 +13,11 @@ import menuRoutes from './routes/menus';
 app.use(morgan('dev'));
 app.use(json());
 
-app.use('/api/restaurants', restaurantRoutes);
-app.use('/api/couriers', courierRoutes);
-app.use('/api/clients', clientRoutes);
-app.use('/api/orders', orderRoutes);
-app.use('/api/menus', menuRoutes);
+app.use('/restaurants', restaurantRoutes);
+app.use('/couriers', courierRoutes);
+app.use('/clients', clientRoutes);
+app.use('/orders', orderRoutes);
+app.use('/menus', menuRoutes);
 
 
 export default app;
