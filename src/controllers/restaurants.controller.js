@@ -1,15 +1,95 @@
-const Restaurant = require('../models/restaurants');
+import Restaurant from '../models/restaurants';
 
-async function getRestaurants(req, res) {
+export async function getRestaurants(req, res) {
     try {
         const restaurants = await Restaurant.findAll({
             attributes: ['id', 'name', 'address']
         });
-        res.json(restaurants);
+        res.json({
+            data: restaurants
+        });
     } catch (error) {
         console.log(error);
-        res.send('something went wrong');
+        res.send('Something went wrong');
     }
 }
 
-exports.getRestaurants = getRestaurants;
+export async function createRestaurant(req, res) {
+    const { name, address } = req.body;
+    try {
+        let newRestaurant = await Restaurant.create({
+            name,
+            address
+        }, {
+            fields: ['name', 'address']
+        });
+        if (newRestaurant) {
+            return res.json({
+                message: 'New Restaurant created',
+                data: newRestaurant
+            })
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Something went wrong'
+        })
+    }
+}
+
+export async function getOneRestaurant(req, res) {
+    const { id } = req.params;
+    try {
+        const restaurant = await Restaurant.findOne({
+            where: {
+                id
+            }
+        });
+        res.json(restaurant);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function updateRestaurant(req, res) {
+    const { id } = req.params;
+    const { name, address } = req.body;
+    try {
+        const restaurant = await Restaurant.findOne({
+            where: {
+                id
+            }
+        });
+        await restaurant.update({
+                name,
+                address
+        });
+        return res.json({
+            message: 'Restaurant updated',
+            data: restaurant
+        })
+    } catch (e) {
+        res.json({
+            message: 'Something went wrong'
+        })
+    }
+}
+
+export async function deleteRestaurant(req, res) {
+    const { id } = req.params;
+    try {
+        const deleteRowsCount = await Restaurant.destroy({
+            where: {
+                id
+            }
+        });
+        res.json({
+            message: 'Restaurant deleted',
+            count: deleteRowsCount
+        })
+    } catch (error) {
+        res.json({
+            message: 'Something went wrong'
+        });
+    }
+}
