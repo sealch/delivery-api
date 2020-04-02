@@ -79,14 +79,13 @@ export async function updateRestaurant(req, res) {
 export async function deleteRestaurant(req, res) {
     const { id } = req.params;
     try {
-        const deleteRowsCount = await Restaurant.destroy({
+        await Restaurant.destroy({
             where: {
                 id
             }
         });
         res.json({
             message: 'Restaurant deleted',
-            count: deleteRowsCount
         })
     } catch (e) {
         console.log(e);
