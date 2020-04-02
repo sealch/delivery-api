@@ -9,7 +9,7 @@ const Courier = sequelize.define('couriers', {
     name: {
         type: Sequelize.STRING
     },
-    total_orders: {
+    delivery_service: {
         type: Sequelize.INTEGER
     }
 }, {
