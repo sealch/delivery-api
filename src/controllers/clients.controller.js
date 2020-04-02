@@ -1,4 +1,4 @@
-const Client = require('../models/clients');
+import Client from '../models/clients';
 
 async function getClients(req, res) {
     try {
