@@ -14,6 +14,5 @@ router.post('/', createOrder);
 router.get('/:id', getOneOrder);
 router.post('/:id', confirmDelivery);
 router.get('/courier/:id', getOrderByCourier);
-// router.post('/:id', confirmDelivery);
 
 export default router;
