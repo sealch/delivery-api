@@ -1,7 +1,6 @@
 import Courier from '../models/couriers';
 import Order from '../models/orders';
 import Client from '../models/clients';
-import Restaurant from "../models/restaurants";
 
 export async function getCouriers(req, res) {
     try {
@@ -139,3 +138,38 @@ export async function mostVisited(req, res) {
     }
 }
 
+export async function avgTime(req, res) {
+    const { id } = req.params;
+    try {
+        const orders = await Order.findAll({
+            where: { courier_id: id },
+            attributes: ['id', 'courier_id', 'order_time', 'delivery_time']
+        });
+        const completionTime = [];
+        orders.forEach(i => {
+            let orderDate = new Date();
+            let [orderHours, orderMinutes, orderSeconds] = i.order_time.split(':');
+            orderDate.setHours(+orderHours);
+            orderDate.setMinutes(+orderMinutes);
+            orderDate.setSeconds(+orderSeconds);
+            if (i.delivery_time) {
+                let deliveryDate = new Date();
+                let [deliveryHours, deliveryMinutes, deliverySeconds] = i.delivery_time.split(':');
+                deliveryDate.setHours(+deliveryHours);
+                deliveryDate.setMinutes(+deliveryMinutes);
+                deliveryDate.setSeconds(+deliverySeconds);
+                completionTime.push(Math.abs(deliveryDate - orderDate));
+            }
+        });
+        const avgInMs = (completionTime.reduce((a, b) => a + b, 0) / completionTime.length) || 0;
+        const avgInMin = Math.round(avgInMs / (1000 * 60));
+        res.json({
+            AverageDeliveryTime: avgInMin + ' minutes'
+        })
+    } catch (e) {
+        console.log(e);
+        res.json({
+            message: 'Something went wrong'
+        });
+    }
+}
