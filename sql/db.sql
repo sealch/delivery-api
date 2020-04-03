@@ -35,17 +35,19 @@ CREATE TABLE IF NOT EXISTS orders (
 
 INSERT INTO restaurants(name, address)
     VALUES
-    ('Dominos', ' street, 52'),
-    ('Pizza Hut', 'ziqwjrfaosi st., ap. 213'),
-    ('Pizza cat', 'zxcqer, 102'),
-    ('Tasty pizza', 'aqwrasfxzc, 24125');
+    ('Dominos', 'Shevchenko st., 77'),
+    ('Pizza Hut', 'Sichovih striltsiv st., 12'),
+    ('Pizza cat', 'Borshagivska st., 42'),
+    ('Tasty pizza', 'Saksaganskogo st., 51');
 
 
 INSERT INTO couriers(name, delivery_service)
     VALUES
     ('Ivan', 'Uber Eats'),
     ('Petro', 'Glovo'),
-    ('Misha', 'Raketa');
+    ('Misha', 'Raketa'),
+    ('Sergey', 'Glovo'),
+    ('Ihor', 'Glovo');
 
 
 INSERT INTO menus(name, price)
@@ -53,12 +55,16 @@ INSERT INTO menus(name, price)
     ('Pizza pepperoni', 120.55),
     ('Pizza with pineapples', 140.20),
     ('Pizza with olives', 150),
-    ('Pizza mammamia', 100.99);
+    ('Pizza mammamia', 100.99),
+    ('Pizza with secret sauce', 159.99);
+
 
 INSERT INTO clients(name, address)
     VALUES
     ('Oleg', 'Bulkina st. ap.124'),
-    ('Ihor', 'Pecherska st. ap.151');
+    ('Ihor', 'Pecherska st. ap.151'),
+    ('Dmitry', 'Sonyachna st. ap.21'),
+    ('Andriy', 'Vladimirska st. ap.311');
 
 INSERT INTO orders(restaurant_id, client_id, courier_id, menu_id, order_time, delivery_time)
     VALUES
@@ -71,6 +77,6 @@ INSERT INTO orders(restaurant_id, client_id, courier_id, menu_id, order_time, de
     ('2', '1', '2', '2', '21:00:51', '21:40:16'),
     ('1', '2', '3', '1', '20:30:41', '21:05:17'),
     ('2', '1', '3', '3', '13:50:13', '14:20:01'),
-    ('1', '2', '3', '1', '16:20:42', '16:50:21');
+    ('1', '2', '3', '1', '16:20:42', NULL);
 
 
