@@ -7,10 +7,12 @@ const Menu = sequelize.define('menus', {
         primaryKey: true
     },
     name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
     },
     price: {
-        type: Sequelize.DECIMAL(10, 2)
+        type: Sequelize.DECIMAL(10, 2),
+        allowNull: false
     }
 }, {
     timestamps: false

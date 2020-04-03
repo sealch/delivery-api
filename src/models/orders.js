@@ -12,19 +12,24 @@ const Order = sequelize.define('orders', {
         primaryKey: true
     },
     restaurant_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
     },
     client_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
     },
     courier_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
     },
     menu_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
     },
     order_time: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false
     },
     delivery_time: {
         type: Sequelize.DATE

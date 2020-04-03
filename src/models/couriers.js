@@ -7,10 +7,12 @@ const Courier = sequelize.define('couriers', {
         primaryKey: true
     },
     name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
     },
     delivery_service: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
     }
 }, {
     timestamps: false

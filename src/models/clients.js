@@ -7,10 +7,12 @@ const Client = sequelize.define('clients', {
         primaryKey: true
     },
     name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
     },
     address: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
     }
 }, {
     timestamps: false
