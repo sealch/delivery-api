@@ -5,6 +5,7 @@ module.exports = {
         return queryInerface.createTable(tableName, {
             id: {
                 type: Sequelize.INTEGER,
+                autoIncrement: true,
                 primaryKey: true
             },
             name: {
@@ -12,7 +13,7 @@ module.exports = {
                 allowNull: false
             },
             delivery_service: {
-                type: Sequelize.INTEGER,
+                type: Sequelize.STRING,
                 allowNull: false
             }
         });
