@@ -1,11 +1,12 @@
 const Sequelize = require('sequelize');
+require('dotenv').config();
 
 const sequelize = new Sequelize(
     process.env.DB_DATABASE || 'postgres',
     process.env.DB_USER || 'postgres',
-    process.env.DB_PASSWORD || '',
+    process.env.DB_PASSWORD || 'postgres',
     {
-        host: process.env.DB_HOST || 'localhost',
+        host: process.env.DB_HOST || 'postgres',
         dialect:  'postgres',
         pool: {
             max: 5,
