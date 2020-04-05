@@ -34,8 +34,8 @@ Note: <b>Postgres must be running.</b>
 ### Build troubleshooting
 If there is an error `FATAL: Peer authentication failed for user "postgres"` then see <a href="https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge">this question at Stackoverflow</a>
 #
-To tell a long story short:
-#### Edit your `pg_hba.conf` and set METHOD to trust:
+#### To tell a long story short:
+Edit your `pg_hba.conf` and set METHOD to trust:
 ```bash
 # TYPE  DATABASE        USER            ADDRESS                 METHOD
 
