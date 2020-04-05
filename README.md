@@ -5,14 +5,27 @@ This is simple RESTful API emulating delivery app
 ### See API documentation <a href="https://documenter.getpostman.com/view/7031084/SzYbwwT6?version=latest">here</a>
 
 ## Run locally
+### 1) Clone and install dependencies
 ```bash
 git clone https://github.com/sealch/delivery-api.git
 cd delivery-api
 npm i && npm install -g sequelize-cli
-npm run init && npm run db:migrate && npm run db:seed
+
+```
+### 2) Create new postgres user
+```bash
+npm run init 
+
+```
+Note: You can create user manually from psql shell
+
+### 3) Initialize database and run server
+```bash
+npm run db:migrate && npm run db:seed
 npm run build && DB_HOST="localhost" npm start
 
 ```
+
 Now server should be running at http://localhost:3000/
 
 Note: <b>Postgres must be running.</b>
