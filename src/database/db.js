@@ -6,7 +6,7 @@ const sequelize = new Sequelize(
     process.env.DB_USER || 'api_user',
     process.env.DB_PASSWORD || 'api_user',
     {
-        host: process.env.DB_HOST || 'postgres',
+        host: process.env.DB_HOST || 'localhost',
         dialect:  'postgres',
         pool: {
             max: 5,
