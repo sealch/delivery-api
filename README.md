@@ -8,7 +8,7 @@ This is simple RESTful API emulating delivery app
 ```bash
 git clone https://github.com/sealch/delivery-api.git
 cd delivery-api
-npm i
+npm i && npm install -g sequelize-cli
 npm run db:migrate && npm run db:seed
 npm run build && DB_HOST="localhost" npm start
 
