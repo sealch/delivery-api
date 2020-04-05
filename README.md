@@ -17,6 +17,9 @@ Now server should be running at http://localhost:3000/
 
 Note: <b>Postgres must be running.</b>
 
+### Build troubleshooting
+If there is an error `FATAL: Peer authentication failed for user "postgres"` then see <a href="https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge">this question at Stackoverflow</a>
+
 ## Available requests:
 You can create request manually (see <a href="https://documenter.getpostman.com/view/7031084/SzYbwwT6?version=latest">docs</a>) or import requests collection and <div style="vertical-align: middle;">[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e3a1fe73004491af042f)</div>
 
