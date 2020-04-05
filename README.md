@@ -9,7 +9,8 @@ This is simple RESTful API emulating delivery app
 git clone https://github.com/sealch/delivery-api.git
 cd delivery-api
 npm i
-npm run db:migrate && npm run db:seed && DB_HOST="localhost" npm run dev
+npm run db:migrate && npm run db:seed
+npm run build && DB_HOST="localhost" npm start
 
 ```
 Now server should be running at http://localhost:3000/
