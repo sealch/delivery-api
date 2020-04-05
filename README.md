@@ -13,11 +13,12 @@ npm i && npm install -g sequelize-cli
 
 ```
 ### 2) Create new postgres user
+Run
 ```bash
-npm run init 
+CREATE ROLE api_user WITH SUPERUSER LOGIN
 
 ```
-Note: You can create user manually from psql shell
+from postgres shell
 
 ### 3) Initialize database and run server
 ```bash
