@@ -11,7 +11,7 @@
     "undo:migration": "./node_modules/.bin/sequelize db:migrate:undo:all",
     "db:seed": "./node_modules/.bin/sequelize db:seed:all",
     "undo:seed": "./node_modules/.bin/sequelize db:seed:undo:all",
-    "init": "sudo psql -U postgres -c 'CREATE ROLE api_user WITH SUPERUSER LOGIN'",
+    "init": "psql -U postgres -h 127.0.0.1 -c 'CREATE ROLE api_user WITH SUPERUSER LOGIN'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
