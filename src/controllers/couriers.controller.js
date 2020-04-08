@@ -16,11 +16,12 @@ export async function getCouriers(req, res) {
 
 export async function createCourier(req, res) {
     try {
-        const { name } = req.body;
+        const { name, delivery_service } = req.body;
         const newCourier = await Courier.create({
-            name
+            name,
+            delivery_service
         }, {
-            fields: ['name']
+            fields: ['name', 'delivery_service']
         });
         res.json({
             message: 'Courier created',
